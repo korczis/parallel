@@ -21,7 +21,7 @@ defmodule Parallel do
   def map(list, fun) do
     list
     |> Stream.map(&Task.async(fn -> fun.(&1) end))
-    |> Enum.map(&Task.await(&1, 3600000))
+    |> Enum.map(&Task.await(&1, 3_600_000))
   end
 
   @doc """
@@ -64,7 +64,7 @@ defmodule Parallel do
     |> Enum.map(fn({_bool, item}) -> item end)
   end
 
-  def all?(list, fun), do: length(filter(list,fun)) == length(list)
-  def any?(list, fun), do: length(filter(list,fun)) > 0
+  def all?(list, fun), do: length(filter(list, fun)) == length(list)
+  def any?(list, fun), do: length(filter(list, fun)) > 0
 
 end
