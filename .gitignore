@@ -1,3 +1,6 @@
+# IntelliJ Idea project
+.idea/
+
 /_build
 /deps
 erl_crash.dump
